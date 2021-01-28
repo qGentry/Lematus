@@ -1,0 +1,14 @@
+encoder_params:
+  enc_hid_dim: 256
+  dec_hid_dim: 256
+  emb_dim: 200
+  num_layers: 2
+  dropout: 0.2
+decoder_params:
+  enc_hid_dim: 256
+  dec_hid_dim: 256
+  emb_dim: 200
+  attn_dim: 50
+  dropout: 0.2
+  teacher_forcing_rate: 0.3
+  maxlen: 30

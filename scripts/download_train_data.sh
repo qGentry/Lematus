@@ -1,0 +1,1 @@
+wget -P data/ https://github.com/UniversalDependencies/UD_Russian-SynTagRus/raw/master/ru_syntagrus-ud-train.conllu
