@@ -20,7 +20,7 @@ class Trainer:
                     num_epochs: int = 3,
                     train_log_steps: int = 100,
                     ):
-        os.makedirs(model_dir)
+        os.makedirs(model_dir, exist_ok=True)
         optimizer = torch.optim.Adam(self.model.parameters(), lr=optimizer_config["learning_rate"])
         lr_scheduler = torch.optim.lr_scheduler.StepLR(
             optimizer, optimizer_config['step_lr_steps'], gamma=optimizer_config['gamma'],
@@ -66,7 +66,7 @@ class Trainer:
         for i, batch in enumerate(validation_dataset):
             inp, target = batch
             target = target.to(self.device)
-            preds, lens, _ = self.model(inp, true_labels=target, train=False)
+            preds, lens, _ = self.model(inp, train=False)
 
             loss = calculate_seq_loss(preds, target)
             losses.append(loss.item())
